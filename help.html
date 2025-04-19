@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>LinkedIn Job Scraper - Help</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+    h1, h2, h3 {
+      color: #0077b5; /* LinkedIn blue */
+    }
+    .section {
+      background-color: #fff;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    code {
+      background-color: #f0f0f0;
+      padding: 2px 5px;
+      border-radius: 3px;
+      font-family: Consolas, Monaco, monospace;
+    }
+    .tip {
+      background-color: #e8f4f8;
+      padding: 15px;
+      border-left: 4px solid #0077b5;
+      margin-bottom: 15px;
+    }
+    .warning {
+      background-color: #fff3cd;
+      padding: 15px;
+      border-left: 4px solid #ffc107;
+      margin-bottom: 15px;
+    }
+    img {
+      max-width: 100%;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 3px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    tr:hover {
+      background-color: #f5f5f5;
+    }
+  </style>
+</head>
+<body>
+  <h1>LinkedIn Job Scraper - Help Guide</h1>
+  
+  <div class="section">
+    <h2>Getting Started</h2>
+    <p>The LinkedIn Job Scraper extension helps you extract and analyze job postings from LinkedIn's job search results. Here's how to use it:</p>
+    
+    <ol>
+      <li>Navigate to <a href="https://www.linkedin.com/jobs/" target="_blank">LinkedIn Jobs</a></li>
+      <li>Perform a job search with your desired criteria (job title, location, etc.)</li>
+      <li>Click on the extension icon in your browser toolbar</li>
+      <li>Click the "Start" button to begin scraping job listings</li>
+      <li>Wait for the scraping to complete (you'll see the progress in the popup)</li>
+      <li>Click the "Search" button to view and analyze your scraped jobs</li>
+    </ol>
+  </div>
+
+  <div class="section">
+    <h2>Features</h2>
+    
+    <h3>Job Scraping</h3>
+    <p>The extension automatically extracts:</p>
+    <ul>
+      <li>Job title</li>
+      <li>Company name</li>
+      <li>Location</li>
+      <li>Posted date</li>
+      <li>Number of applicants</li>
+      <li>Full job description</li>
+      <li>Direct link to the job posting</li>
+    </ul>
+    
+    <h3>Job Search & Analysis</h3>
+    <p>The Search page provides powerful tools to work with your scraped data:</p>
+    <ul>
+      <li>Full-text search across all job details</li>
+      <li>Dedicated description search for finding specific skills or requirements</li>
+      <li>Filtering by keywords in job descriptions</li>
+      <li>Export to CSV or Excel formats</li>
+      <li>Sort by any column</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Tips & Troubleshooting</h2>
+    
+    <div class="tip">
+      <strong>Tip:</strong> For the best results, scroll through some job listings on LinkedIn before starting the scraper. This helps LinkedIn load more jobs into the page.
+    </div>
+    
+    <h3>Common Issues</h3>
+    <table>
+      <tr>
+        <th>Issue</th>
+        <th>Solution</th>
+      </tr>
+      <tr>
+        <td>Scraper doesn't start</td>
+        <td>Make sure you're on a LinkedIn jobs search page. The URL should contain "linkedin.com/jobs"</td>
+      </tr>
+      <tr>
+        <td>Progress bar stays at 0%</td>
+        <td>Refresh the page and try again. Make sure you have job listings visible on the page.</td>
+      </tr>
+      <tr>
+        <td>Some job details are missing</td>
+        <td>LinkedIn occasionally changes their page structure. Please report this issue on our GitHub page.</td>
+      </tr>
+      <tr>
+        <td>Storage limit reached</td>
+        <td>Clear some of your older job data using the "Clear Data" button.</td>
+      </tr>
+    </table>
+    
+    <div class="warning">
+      <strong>Note:</strong> Web scraping should be done responsibly. Avoid making too many requests in a short time period, as this could lead to your account being temporarily limited by LinkedIn.
+    </div>
+  </div>
+  
+  <div class="section">
+    <h2>Privacy & Data</h2>
+    <p>All scraped job data is stored locally in your browser and never sent to external servers. You can clear this data at any time using the "Clear Data" button in either the popup or search page.</p>
+  </div>
+  
+  <div class="section">
+    <h2>Need More Help?</h2>
+    <p>If you're experiencing issues or have suggestions for improvements, please visit our <a href="https://github.com/YOUR-USERNAME/linkedin-scraper" target="_blank">GitHub repository</a> to report issues or contribute to the project.</p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "name": "linkedin-scraper",
+  "version": "1.0.0",
+  "main": "linkedin-scraper.js",
+  "scripts": {
+    "start": "node linkedin-scraper.js"
+  },
+  "dependencies": {
+    "puppeteer": "^10.0.0"
+  }
+}

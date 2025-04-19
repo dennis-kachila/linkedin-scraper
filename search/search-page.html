@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title id="pageTitle">LinkedIn Jobs</title>
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="script-src 'self' 'unsafe-inline';"
+    />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="jquery.dataTables.min.css" />
+    <script type="text/javascript" src="jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="jquery.dataTables.min.js"></script>
+    <!-- full CDN -->
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="title">LinkedIn Job</h1>
+      <button id="clearLocalStorageButton" class="button">
+        Clear Local Storage
+      </button>
+      <table id="jobsTable" class="table">
+        <thead>
+          <tr>
+            <th>Job Title</th>
+            <th>Location</th>
+            <th>Company</th>
+            <th>Posted since</th>
+            <th>Number of applicants</th>
+            <th>Link</th>
+            <th>Job Description</th>
+          </tr>
+        </thead>
+        <tbody id="jobsTableBody"></tbody>
+      </table>
+    </div>
+    <script type="text/javascript" src="search-page.js"></script>
+  </body>
+</html>
