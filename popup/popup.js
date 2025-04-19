@@ -2,7 +2,34 @@
 document.addEventListener("DOMContentLoaded", () => {
   checkCurrentPage();
   updateJobCount();
+  // Retrieve and set scraping state when popup opens
+  checkScrapingState();
 });
+
+// Function to check if scraping is in progress
+function checkScrapingState() {
+  chrome.storage.local.get(["currentlyScraping"], function(result) {
+    const isScraping = result.currentlyScraping === true;
+    
+    if (isScraping) {
+      // Update UI to show scraping in progress
+      document.getElementById("startButton").disabled = true;
+      document.getElementById("startButton").classList.add("hidden");
+      document.getElementById("stopButton").classList.remove("hidden");
+      document.getElementById("progressBar").style.display = "block";
+      
+      // Get the last known progress if available
+      chrome.storage.local.get(["scrapingProgress"], function(progressData) {
+        const progress = progressData.scrapingProgress || 0;
+        document.getElementById("progressBar").value = progress;
+        document.getElementById("progressLabel").textContent = `${progress}%`;
+      });
+      
+      const statusMessage = document.getElementById("statusMessage");
+      statusMessage.textContent = "Scraping in progress...";
+    }
+  });
+}
 
 // Function to check if user is on the right page
 function checkCurrentPage() {
@@ -35,6 +62,13 @@ document.getElementById("startButton").addEventListener("click", () => {
   statusMessage.textContent = "Starting job scraping...";
   statusMessage.className = "status-message";
 
+  // Store the scraping state so it persists if popup is closed
+  chrome.storage.local.set({
+    "currentlyScraping": true,
+    "scrapingProgress": 0,
+    "scrapingStartTime": new Date().toISOString()
+  });
+
   // Send message to content script to start scraping
   chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
     if (tabs[0] && tabs[0].id) {
@@ -47,10 +81,11 @@ document.getElementById("startButton").addEventListener("click", () => {
           console.error("Error pinging content script:", chrome.runtime.lastError);
           showError("Cannot communicate with LinkedIn page. Please refresh the page and try again.");
           
-          // Reset UI
+          // Reset UI and scraping state
           document.getElementById("startButton").disabled = false;
           document.getElementById("startButton").classList.remove("hidden");
           document.getElementById("stopButton").classList.add("hidden");
+          chrome.storage.local.set({"currentlyScraping": false});
           return;
         }
         
@@ -64,18 +99,20 @@ document.getElementById("startButton").addEventListener("click", () => {
           });
         } else {
           showError("Failed to start scraping. Please try refreshing the page.");
-          // Reset UI
+          // Reset UI and scraping state
           document.getElementById("startButton").disabled = false;
           document.getElementById("startButton").classList.remove("hidden");
           document.getElementById("stopButton").classList.add("hidden");
+          chrome.storage.local.set({"currentlyScraping": false});
         }
       });
     } else {
       showError("No active tab found. Please refresh the page and try again.");
-      // Reset UI
+      // Reset UI and scraping state
       document.getElementById("startButton").disabled = false;
       document.getElementById("startButton").classList.remove("hidden");
       document.getElementById("stopButton").classList.add("hidden");
+      chrome.storage.local.set({"currentlyScraping": false});
     }
   });
 });
@@ -92,6 +129,12 @@ document.getElementById("stopButton").addEventListener("click", () => {
       document.getElementById("startButton").classList.remove("hidden");
       document.getElementById("startButton").disabled = false;
       document.getElementById("statusMessage").textContent = "Scraping stopped by user";
+      
+      // Reset scraping state in storage
+      chrome.storage.local.set({
+        "currentlyScraping": false,
+        "scrapingProgress": 0
+      });
     }
   });
 });
@@ -177,6 +220,11 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
     if (progressBar && progressLabel) {
       progressBar.value = progress;
       progressLabel.textContent = `${progress}%`;
+      
+      // Save progress state so it persists when popup is closed
+      chrome.storage.local.set({
+        "scrapingProgress": progress
+      });
     }
   }
   
