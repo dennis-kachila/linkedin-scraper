@@ -87,14 +87,16 @@ document.addEventListener("DOMContentLoaded", function () {
         table.clear();
 
         // Create table rows from the jobs data
-        jobs.forEach(function (job) {
+        jobs.forEach(function (job, index) {
           // Format the description for better readability
           const formattedDescription = formatJobDescription(job.jobDescription);
           
           // Create a clickable link
           const linkHTML = `<a href="${job.link}" target="_blank" class="job-link" title="Open job on LinkedIn">View <i class="fas fa-external-link-alt"></i></a>`;
           
+          // Add Job No. (index + 1) to make it 1-based instead of 0-based
           table.row.add([
+            index + 1, // Job No.
             job.jobTitle || "N/A",
             job.jobLocation || "N/A",
             job.company || "N/A",
