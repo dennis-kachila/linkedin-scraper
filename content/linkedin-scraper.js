@@ -13,11 +13,6 @@ function sendProgressPercentage(progressPercentage) {
   });
 }
 
-<<<<<<< HEAD
-function simulateRealScrollToEnd(element, duration) {
-  const startScrollTop = element.scrollTop;
-  const endScrollTop = element.scrollHeight - element.clientHeight;
-=======
 function sendErrorToPopup(error) {
   chrome.runtime.sendMessage({
     action: "error",
@@ -28,18 +23,14 @@ function sendErrorToPopup(error) {
 function simulateRealScrollToEnd(element, duration) {
   const startScrollTop = element.scrollTop;
   // Removed endScrollTop calculation from here
->>>>>>> super-clean-branch
 
   const startTime = performance.now();
   const endTime = startTime + duration;
 
   function scrollStep(timestamp) {
-<<<<<<< HEAD
-=======
     // Calculate endScrollTop here so it's updated on each scroll step
     const endScrollTop = element.scrollHeight - element.clientHeight;
     
->>>>>>> super-clean-branch
     const currentTime = Math.min(timestamp, endTime);
     const elapsedTime = currentTime - startTime;
     const scrollFraction = elapsedTime / duration;
@@ -57,116 +48,6 @@ function simulateRealScrollToEnd(element, duration) {
 }
 
 async function scrapeJobDetails(card) {
-<<<<<<< HEAD
-  card.click();
-
-  await new Promise((resolve) => setTimeout(resolve, 1000));
-
-  const jobTitle = document.querySelector(
-    ".job-details-jobs-unified-top-card__job-title"
-  ).innerText;
-
-  const jobLocation =
-    document.querySelector(".job-details-jobs-unified-top-card__bullet")
-      ?.textContent || "";
-
-  const company = document.querySelector(
-    ".job-details-jobs-unified-top-card__primary-description-without-tagline .app-aware-link"
-  ).innerText;
-
-  const numberOfApplicants = document.querySelector(
-    ".tvm__text.tvm__text"
-  )?.textContent;
-
-  const postedSince = document.querySelector(
-    ".job-details-jobs-unified-top-card__primary-description-without-tagline.mb2"
-  )?.children[5].textContent;
-
-  const jobDescription = document.querySelector(
-    ".jobs-description-content__text"
-  ).innerText;
-
-  const linkedinJobId = window.location.href
-    .split("currentJobId=")[1]
-    .split("&")[0];
-
-  const link = `https://www.linkedin.com/jobs/search/?currentJobId=${linkedinJobId}`;
-
-  return {
-    linkedinJobId,
-    link,
-    jobTitle,
-    company,
-    numberOfApplicants,
-    jobLocation,
-    postedSince,
-    jobDescription,
-  };
-}
-
-async function changePage(pageNumber) {
-  // click button
-  const pageButton = document.querySelector(
-    `button[aria-label="Page ${pageNumber}"]`
-  );
-  pageButton.click();
-
-  // give some time for page loading
-  await new Promise((resolve) => setTimeout(resolve, 3000));
-}
-
-async function scrapeLinkedInJobs() {
-  const pageCountElements = [
-    ...document.querySelectorAll(".artdeco-pagination__indicator"),
-  ];
-
-  const pageCount =
-    pageCountElements.length > 0
-      ? parseInt(
-          pageCountElements[pageCountElements.length - 1].textContent.trim()
-        )
-      : 1;
-
-  sendMessageToPopup(`Page Count: ${pageCount}`);
-
-  for (let pageIndex = 0; pageIndex < pageCount; pageIndex++) {
-    const cardsListElement = document.querySelector(
-      ".jobs-search-results-list"
-    );
-    await scrollProgressively();
-    const cards = document.querySelectorAll(".job-card-container");
-
-    const cardCount = cards.length;
-    sendMessageToPopup(`Card Count: ${cardCount}`);
-
-    for (let cardIndex = 0; cardIndex < cardCount; cardIndex++) {
-      sendMessageToPopup(
-        `Card (${cardIndex + 1}/${cardCount}) of page ${
-          pageIndex + 1
-        }/${pageCount}`
-      );
-
-      const jobDetails = await scrapeJobDetails(cards[cardIndex]);
-
-      sendJob(jobDetails);
-
-      const cardProgressPercentage = Math.round(
-        ((cardIndex + 1) / cardCount) * 100
-      );
-
-      const pageProgressPercentage = Math.round((pageIndex / pageCount) * 100);
-
-      const overallProgressPercentage = Math.round(
-        pageProgressPercentage + cardProgressPercentage / pageCount
-      );
-
-      sendProgressPercentage(overallProgressPercentage);
-    }
-
-    if (pageIndex < pageCount - 1) {
-      await changePage(pageIndex + 2);
-    }
-=======
   try {
     sendMessageToPopup("Clicking job card and waiting for details to load...");
     card.click();
@@ -712,27 +593,10 @@ async function scrapeLinkedInJobs() {
     // Set progress bar to reflect error state
     sendProgressPercentage(0);
     throw error;
->>>>>>> super-clean-branch
   }
 }
 
 function scrollProgressively() {
-<<<<<<< HEAD
-  const timeToCall = 2000;
-  return new Promise((res) => {
-    const jobs = document.querySelectorAll(".job-card-container");
-    const jobsCount = jobs.length;
-    jobs[jobsCount - 1].scrollIntoView({ behaviour: "smooth" });
-    setTimeout(async () => {
-      if (
-        document.querySelectorAll(".job-card-container").length != jobsCount
-      ) {
-        res(scrollProgressively());
-      } else {
-        return res({ status: "end of scroll" });
-      }
-    }, timeToCall);
-=======
   const timeToCall = 4000; // Increased to give more time for LinkedIn to load content
   return new Promise((res) => {
     try {
@@ -1024,6 +888,5 @@ function scrollProgressively() {
       sendErrorToPopup(`Error during scroll operation: ${error.message}`);
       return res({ status: "error", error: error.message });
     }
->>>>>>> super-clean-branch
   });
 }

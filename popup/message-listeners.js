@@ -1,14 +1,10 @@
 chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
   if (message.action === "popupMessage") {
     const statusMessage = document.getElementById("statusMessage");
-<<<<<<< HEAD
-    statusMessage.textContent = message.message + "...";
-=======
     statusMessage.textContent = message.message;
     
     // Log the message for debugging
     console.log(`Status update: ${message.message}`);
->>>>>>> super-clean-branch
   }
 });
 
@@ -23,8 +19,6 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 
     progressBar.value = message.message;
     progressBar.textContent = message.message + "%";
-<<<<<<< HEAD
-=======
     
     // Update title to show progress
     document.title = `LinkedIn Scraper (${message.message}%)`;
@@ -102,7 +96,6 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
         }
       });
     }
->>>>>>> super-clean-branch
   }
 });
 

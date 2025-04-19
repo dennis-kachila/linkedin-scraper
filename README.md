@@ -11,10 +11,6 @@ The Enhanced LinkedIn Job Search Chrome extension provides enhanced functionalit
 - Simpler description based search: Search for jobs based on keywords in the job description.
 
 
-<<<<<<< HEAD
-=======
-
->>>>>>> super-clean-branch
 ## Getting Started
 
 ### Installation

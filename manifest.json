@@ -1,16 +1,10 @@
 {
   "manifest_version": 3,
   "name": "LinkedIn Job Scraper",
-<<<<<<< HEAD
-  "version": "1.0",
-  "description": "Scrape job details from LinkedIn",
-  "permissions": ["tabs", "storage"],
-=======
   "version": "1.1",
   "description": "Extract and analyze job details from LinkedIn job listings",
   "permissions": ["tabs", "storage", "scripting"],
   "host_permissions": ["https://www.linkedin.com/*"],
->>>>>>> super-clean-branch
   "background": {
     "service_worker": "background/background.js",
     "type": "module"
@@ -23,24 +17,17 @@
     }
   ],
   "action": {
-<<<<<<< HEAD
-    "default_popup": "popup/popup.html"
-=======
     "default_popup": "popup/popup.html",
     "default_icon": {
       "16": "images/icon.png",
       "48": "images/icon.png",
       "128": "images/icon.png"
     }
->>>>>>> super-clean-branch
   },
   "icons": {
     "16": "images/icon.png",
     "48": "images/icon.png",
     "128": "images/icon.png"
-<<<<<<< HEAD
-  }
-=======
   },
   "web_accessible_resources": [
     {
@@ -52,5 +39,4 @@
       "matches": ["<all_urls>"]
     }
   ]
->>>>>>> super-clean-branch
 }

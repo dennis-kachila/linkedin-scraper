@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
-  if (message.action === "job") {
-    chrome.storage.local.get('jobs', function (result) {
-      const existingJobs = result.jobs || [];
-      const newJobs = [...existingJobs, message.message];
-      chrome.storage.local.set({ jobs: newJobs });
-    });
-  }
-=======
 // Constants
 const STORAGE_LIMIT_BUFFER = 4.5 * 1024 * 1024; // 4.5MB limit for Chrome storage (5MB limit with buffer)
 const MAX_ERROR_RETRY = 3;
@@ -225,5 +215,4 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
     });
     return true; // Indicates async response
   }
->>>>>>> super-clean-branch
 });

@@ -2,72 +2,41 @@ body {
   font-family: Arial, sans-serif;
   margin: 20px;
   width: 400px;
-<<<<<<< HEAD
-=======
   background-color: #f9f9f9;
->>>>>>> super-clean-branch
 }
 
 h1 {
   font-size: 24px;
   margin-bottom: 20px;
   color: #0077b5; /* LinkedIn color */
-<<<<<<< HEAD
-}
-
-button {
-  width: 100%;
-=======
   text-align: center;
 }
 
 button {
->>>>>>> super-clean-branch
   border: none;
   padding: 10px 20px;
   text-align: center;
   text-decoration: none;
   font-size: 16px;
   cursor: pointer;
-<<<<<<< HEAD
-=======
   border-radius: 4px;
   transition: background-color 0.3s ease;
->>>>>>> super-clean-branch
 }
 
 .status-message {
   margin-bottom: 12px;
   font-size: 16px;
-<<<<<<< HEAD
-  color: #888;
-=======
   color: #555;
   min-height: 20px;
   text-align: center;
   padding: 5px;
   background-color: #f0f0f0;
   border-radius: 4px;
->>>>>>> super-clean-branch
 }
 
 .button-container {
   display: flex;
   justify-content: space-between;
-<<<<<<< HEAD
-  margin-top: 20px;
-}
-
-.search-button,
-.start-button {
-  background-color: #4caf50;
-  color: white;
-}
-
-.search-button:hover[disabled="false"],
-.start-button:hover[disabled="false"] {
-  background-color: #46a049;
-=======
   gap: 10px;
   margin-top: 20px;
   flex-wrap: wrap;
@@ -105,7 +74,6 @@ button {
 
 .stop-button:hover:not([disabled]) {
   background-color: #c0392b;
->>>>>>> super-clean-branch
 }
 
 button:disabled {
@@ -114,24 +82,13 @@ button:disabled {
   cursor: not-allowed;
 }
 
-<<<<<<< HEAD
-.progress-bar{
-=======
 .progress-bar {
->>>>>>> super-clean-branch
   width: 100%;
   height: 20px;
   background-color: #ddd;
   border-radius: 5px;
   margin-top: 20px;
   display: none;
-<<<<<<< HEAD
-  text-align: center;
-}
-
-.progress-bar:after {
-  content: attr(value)'%';
-=======
 }
 
 .progress-label {
@@ -178,5 +135,4 @@ button:disabled {
 
 .success {
   color: #2ecc71;
->>>>>>> super-clean-branch
 }

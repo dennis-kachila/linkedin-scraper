@@ -1,14 +1,3 @@
-<<<<<<< HEAD
-chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
-  if (message.action === "startScraping") {
-    scrapeLinkedInJobs()
-      .then((data) => {})
-      .catch((err) => {
-        console.error(err);
-      });
-  }
-
-=======
 // Console logging to debug start
 console.log("LinkedIn Scraper content script loaded", window.location.href);
 
@@ -112,6 +101,5 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
   }
 
   // Always return true for async response
->>>>>>> super-clean-branch
   return true;
 });
