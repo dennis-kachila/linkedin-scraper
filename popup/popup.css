@@ -2,33 +2,59 @@ body {
   font-family: Arial, sans-serif;
   margin: 20px;
   width: 400px;
+<<<<<<< HEAD
+=======
+  background-color: #f9f9f9;
+>>>>>>> super-clean-branch
 }
 
 h1 {
   font-size: 24px;
   margin-bottom: 20px;
   color: #0077b5; /* LinkedIn color */
+<<<<<<< HEAD
 }
 
 button {
   width: 100%;
+=======
+  text-align: center;
+}
+
+button {
+>>>>>>> super-clean-branch
   border: none;
   padding: 10px 20px;
   text-align: center;
   text-decoration: none;
   font-size: 16px;
   cursor: pointer;
+<<<<<<< HEAD
+=======
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+>>>>>>> super-clean-branch
 }
 
 .status-message {
   margin-bottom: 12px;
   font-size: 16px;
+<<<<<<< HEAD
   color: #888;
+=======
+  color: #555;
+  min-height: 20px;
+  text-align: center;
+  padding: 5px;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+>>>>>>> super-clean-branch
 }
 
 .button-container {
   display: flex;
   justify-content: space-between;
+<<<<<<< HEAD
   margin-top: 20px;
 }
 
@@ -41,6 +67,45 @@ button {
 .search-button:hover[disabled="false"],
 .start-button:hover[disabled="false"] {
   background-color: #46a049;
+=======
+  gap: 10px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.start-button {
+  background-color: #2ecc71; /* Green */
+  color: white;
+  flex: 1;
+}
+
+.stop-button {
+  background-color: #e74c3c; /* Red */
+  color: white;
+  flex: 1;
+}
+
+.search-button {
+  background-color: #3498db; /* Blue */
+  color: white;
+  flex: 1;
+}
+
+.export-button {
+  background-color: #f39c12; /* Orange */
+  color: white;
+  flex: 1;
+}
+
+.start-button:hover:not([disabled]),
+.search-button:hover:not([disabled]),
+.export-button:hover:not([disabled]) {
+  filter: brightness(90%);
+}
+
+.stop-button:hover:not([disabled]) {
+  background-color: #c0392b;
+>>>>>>> super-clean-branch
 }
 
 button:disabled {
@@ -49,16 +114,69 @@ button:disabled {
   cursor: not-allowed;
 }
 
+<<<<<<< HEAD
 .progress-bar{
+=======
+.progress-bar {
+>>>>>>> super-clean-branch
   width: 100%;
   height: 20px;
   background-color: #ddd;
   border-radius: 5px;
   margin-top: 20px;
   display: none;
+<<<<<<< HEAD
   text-align: center;
 }
 
 .progress-bar:after {
   content: attr(value)'%';
+=======
+}
+
+.progress-label {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 5px;
+  color: #555;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.help-button {
+  background-color: transparent;
+  color: #0077b5;
+  padding: 5px 10px;
+}
+
+.clear-button {
+  background-color: #7f8c8d;
+  color: white;
+  padding: 5px 10px;
+}
+
+.info-box {
+  background-color: #d6eaf8;
+  border-left: 4px solid #3498db;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 0 4px 4px 0;
+  display: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.error {
+  color: #e74c3c;
+}
+
+.success {
+  color: #2ecc71;
+>>>>>>> super-clean-branch
 }

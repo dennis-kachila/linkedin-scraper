@@ -1,6 +1,13 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html>
   <head>
+=======
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+>>>>>>> super-clean-branch
     <title>LinkedIn Job Scraper</title>
     <link rel="stylesheet" href="popup.css" />
     <link
@@ -10,6 +17,12 @@
   </head>
   <body>
     <h1>LinkedIn Job Scraper</h1>
+<<<<<<< HEAD
+=======
+    <div class="info-box" id="infoBox">
+      <p>Please navigate to a LinkedIn Jobs search page before starting</p>
+    </div>
+>>>>>>> super-clean-branch
     <p class="status-message" id="statusMessage">
       Click the button below to start scraping.
     </p>
@@ -17,12 +30,36 @@
       <button class="start-button" id="startButton">
         <i class="fas fa-play"></i> Start
       </button>
+<<<<<<< HEAD
       <button class="search-button" id="openSearchPageButton">
         <i class="fas fa-search"></i> Search <span id="searchCount">(0)</span>
       </button>
     </div>
     <div>
       <progress class="progress-bar" id="progressBar" value="0" max="100"></progress>
+=======
+      <button class="stop-button hidden" id="stopButton">
+        <i class="fas fa-stop"></i> Stop
+      </button>
+      <button class="search-button" id="openSearchPageButton">
+        <i class="fas fa-search"></i> Search <span id="searchCount">(0)</span>
+      </button>
+      <button class="export-button" id="exportButton">
+        <i class="fas fa-file-export"></i> Export
+      </button>
+    </div>
+    <div>
+      <progress class="progress-bar" id="progressBar" value="0" max="100"></progress>
+      <div class="progress-label" id="progressLabel">0%</div>
+    </div>
+    <div class="footer">
+      <button class="help-button" id="helpButton" title="Help">
+        <i class="fas fa-question-circle"></i>
+      </button>
+      <button class="clear-button" id="clearDataButton">
+        <i class="fas fa-trash"></i> Clear Data
+      </button>
+>>>>>>> super-clean-branch
     </div>
   </body>
   <script src="message-listeners.js"></script>
